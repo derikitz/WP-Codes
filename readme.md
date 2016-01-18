@@ -12,8 +12,6 @@ But this codes are integrated mostly in active theme for usage and some external
 
 This project was created for the DRY method so that others or specifically me won't repeat coding it on to themes or onto wordpress projects
 
-## Installation
-
 
 
 ## Contributors
