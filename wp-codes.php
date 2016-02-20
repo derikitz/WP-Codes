@@ -83,3 +83,32 @@ function shortcode_method( $atts, $content = "" ) {
 
     return $html;
 }
+
+
+/*---------------------------------------------------
+# Fonts URL 
+---------------------------------------------------*/
+function plain_lands_fonts_url() {
+    $fonts_url = '';
+    $fonts     = array();
+
+    if ( 'off' !== _x( 'on', 'Open Sans font: on or off', 'plain-lands' )  ) {
+        $fonts[] = 'Open+Sans:400,400italic,600,600italic,700,700italic,800,800italic,300italic,300';
+    }
+
+    if ( 'off' !== _x( 'on', 'Dosis font: on or off', 'plain-lands' )  ) {
+        $fonts[] = 'Dosis:400,500,700,600';
+    }
+
+    if ( 'off' !== _x( 'on', 'Raleway font: on or off', 'plain-lands' )  ) {
+        $fonts[] = 'Raleway:400,300,500,600,700,800,900';
+    }
+
+    if ( $fonts ) {
+        $fonts_url = add_query_arg( array(
+            'family' => str_replace(array( '%3A', '%2C' ), array( ':', ',' ), urlencode( implode( '|', $fonts ) )),
+        ), 'https://fonts.googleapis.com/css' );
+    }
+
+    return $fonts_url;
+}

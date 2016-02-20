@@ -28,13 +28,13 @@
 		});
 
 		/*----------------------------------------------------
-		# Lazy Hover and Target
+		# Lazy Hover, Target and Background
 		----------------------------------------------------*/
 		/*
 			There's this client that loves making div's clickable and hoverable so I made this lines of codes for me to use whenever he wants it to be hoverable and when clicked redirects you to another location
 
 			Usage:
-			<div data-hover="true" data-target="http://location.to.com">
+			<div data-hover="true" data-target="http://location.to.com" data-bg="http://domina.com/path/to/image.jpg">
 				// Whatever it is inside the div
 			</div>
 		*/
@@ -48,21 +48,15 @@
 			window.location = $(this).data('target');
 		});
 
-		/*----------------------------------------------------
-		# Absolute Element Draggable
-		----------------------------------------------------*/
-		//Get Current Screen Height;
-		var height = jQuery(window).height();
 
-		jQuery('#nav_menu-3').mousedown(function(){
-			jQuery(this).addClass('draggable');
-		}).mouseleave(function(){
-			jQuery(this).removeClass('draggable');
-		})
-
-		jQuery('#nav_menu-3.draggable').mousemove(function() {
-			
+		$('*').find('[data-bg]').each(function(index, value) {
+			$(this).css({
+				backgroundImage:'url('+$(this).data('bg')+')',
+				backgroundSize:'cover',
+				backgroundPosition:'center',
+			});
 		});
+		
 
 	});
 
